@@ -1,19 +1,21 @@
 package com.example.hack4_0;
 
 public class add {
-    private String name,address,latitude,longitude,phone;
+    private String name,address,latitude,longitude,phone,beds,test_kits;
 
     public add()
     {
 
     }
-    public add(String name,String address,String latitude,String longitude,String phone)
+    public add(String name,String address,String latitude,String longitude,String phone,String beds,String test_kits)
     {
         this.name = name;
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;
         this.phone = phone;
+        this.beds = beds;
+        this.test_kits = test_kits;
     }
 
     public String getName() {
@@ -34,6 +36,22 @@ public class add {
 
     public String getLatitude() {
         return latitude;
+    }
+
+    public String getBeds() {
+        return beds;
+    }
+
+    public void setBeds(String beds) {
+        this.beds = beds;
+    }
+
+    public String getTest_kits() {
+        return test_kits;
+    }
+
+    public void setTest_kits(String test_kits) {
+        this.test_kits = test_kits;
     }
 
     public void setLatitude(String latitude) {

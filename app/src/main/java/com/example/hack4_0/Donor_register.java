@@ -55,7 +55,7 @@ public class Donor_register extends AppCompatActivity {
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(Donor_register.this, "Registered successful", Toast.LENGTH_LONG).show();
+                Toast.makeText(Donor_register.this, "Registered successful", Toast.LENGTH_SHORT).show();
                 mDatabaseRef.child(id).setValue(uploaddata);
             }
 

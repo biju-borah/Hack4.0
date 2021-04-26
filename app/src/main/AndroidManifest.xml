@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hack40">
-        <activity android:name=".MainActivity3"></activity>
+        <activity android:name=".Plasma_list"></activity>
+        <activity android:name=".MainActivity4" />
+        <activity android:name=".Flag_bed_list" />
+        <activity android:name=".Flag_bed" />
+        <activity android:name=".Select_type" />
+        <activity android:name=".hospital_list" />
+        <activity android:name=".MainActivity3" />
         <activity android:name=".hospitalsearch" />
         <activity android:name=".Donor_register" />
         <activity android:name=".EditActivity" />

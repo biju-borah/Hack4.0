@@ -39,7 +39,7 @@ public class AddActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddActivity.this, "Please wait...", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddActivity.this, "Please wait...", Toast.LENGTH_SHORT).show();
                 uploadfile();
 
             }
@@ -54,13 +54,15 @@ public class AddActivity extends AppCompatActivity {
         upload.setLongitude(longitude.getText().toString());
         upload.setName(name.getText().toString());
         upload.setPhone(phone.getText().toString());
+        upload.setBeds("0");
+        upload.setTest_kits("No");
 
         String id = latitude.getText().toString() + "-" + longitude.getText().toString();
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(AddActivity.this, "Registered successful", Toast.LENGTH_LONG).show();
+                Toast.makeText(AddActivity.this, "Registered successful", Toast.LENGTH_SHORT).show();
                 mDatabaseRef.child(id).setValue(upload);
 
             }

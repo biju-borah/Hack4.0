@@ -7,23 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class hospital_list extends AppCompatActivity {
+    Button h1;
 
-    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_hospital_list);
 
-        button = findViewById(R.id.button);
+        h1 = findViewById(R.id.h1);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        h1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Plasma_list.class);
+                Intent intent = new Intent(hospital_list.this,Select_type.class);
                 startActivity(intent);
             }
         });
     }
-
 }
