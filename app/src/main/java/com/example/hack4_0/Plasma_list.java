@@ -75,6 +75,8 @@ public class Plasma_list extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                list.clear();
                 System.out.println(parent.getItemAtPosition(position));
                 if(parent.getItemAtPosition(position).toString().compareTo("A+ve") == 0){
 
@@ -107,6 +109,7 @@ public class Plasma_list extends AppCompatActivity {
                 }
                 else if (parent.getItemAtPosition(position).toString().compareTo("A-ve") == 0)
                 {
+                    list.clear();
                     databaseReference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -134,6 +137,7 @@ public class Plasma_list extends AppCompatActivity {
                 }
                 else if(parent.getItemAtPosition(position).toString().compareTo("O-ve") == 0)
                 {
+                    list.clear();
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -160,6 +164,7 @@ public class Plasma_list extends AppCompatActivity {
                 }
                 else if (parent.getItemAtPosition(position).toString().compareTo("O+ve") == 0)
                 {
+                    list.clear();
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -186,6 +191,7 @@ public class Plasma_list extends AppCompatActivity {
                 }
                 else if(parent.getItemAtPosition(position).toString().compareTo("B-ve") == 0)
                 {
+                    list.clear();
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -212,6 +218,7 @@ public class Plasma_list extends AppCompatActivity {
                 }
                 else if (parent.getItemAtPosition(position).toString().compareTo("B+ve") == 0)
                 {
+                    list.clear();
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
