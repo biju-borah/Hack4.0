@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    Button b1,b2,b3;
+    Button b1,b2,b3,b4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,11 +18,12 @@ public class MainActivity2 extends AppCompatActivity {
         b1 = findViewById(R.id.button3);
         b2 = findViewById(R.id.button2);
         b3 = findViewById(R.id.button_idk);
+        b4 = findViewById(R.id.button_idk2);
 
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this,MainActivity3.class);
+                Intent intent = new Intent(MainActivity2.this,hospital_list.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +39,15 @@ public class MainActivity2 extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this,AddActivity.class);
+                Intent intent = new Intent(MainActivity2.this,Plasma_list.class);
+                startActivity(intent);
+            }
+        });
+
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this,Flag_bed.class);
                 startActivity(intent);
             }
         });

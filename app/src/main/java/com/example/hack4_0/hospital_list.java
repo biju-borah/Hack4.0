@@ -20,7 +20,7 @@ public class hospital_list extends AppCompatActivity {
         h1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(hospital_list.this,Select_type.class);
+                Intent intent = new Intent(hospital_list.this,MainActivity5.class);
                 startActivity(intent);
             }
         });

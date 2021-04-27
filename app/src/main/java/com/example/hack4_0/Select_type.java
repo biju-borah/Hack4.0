@@ -29,7 +29,7 @@ public class Select_type extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Select_type.this,Flag_bed_list.class);
+                Intent intent = new Intent(Select_type.this,MainActivity5.class);
                 startActivity(intent);
             }
         });

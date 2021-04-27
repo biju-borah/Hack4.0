@@ -6,6 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,11 +26,18 @@ public class Plasma_list extends AppCompatActivity {
     DatabaseReference databaseReference;
     private MyAdapter3 adapter;
     private ArrayList<Model_plasma> list;
+    private Spinner spinner;
+    ArrayAdapter<CharSequence> adapt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plasma_list);
+
+        spinner = findViewById(R.id.spine);
+        adapt = ArrayAdapter.createFromResource(this,R.array.blood_group, R.layout.support_simple_spinner_dropdown_item);
+        adapt.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinner.setAdapter(adapt);
 
         recyclerView = findViewById(R.id.recycle_again);
         recyclerView.setHasFixedSize(true);
@@ -39,7 +51,7 @@ public class Plasma_list extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Plasma");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        /*databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
@@ -56,6 +68,178 @@ public class Plasma_list extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                System.out.println(parent.getItemAtPosition(position));
+                if(parent.getItemAtPosition(position).toString().compareTo("A+ve") == 0){
+
+                    System.out.println("yoooooo");
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                System.out.println("yo");
+
+                                if(dataSnapshot.child("type").getValue().toString().compareTo("A+") == 0)
+                                {
+                                    Model_plasma model = new Model_plasma();
+                                    model.setName(dataSnapshot.child("name").getValue().toString());
+                                    model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                    model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                    model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                    list.add(model);
+                                }
+
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                else if (parent.getItemAtPosition(position).toString().compareTo("A-ve") == 0)
+                {
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                            if(dataSnapshot.child("type").getValue().toString().compareTo("A-") == 0)
+                            {
+                                Model_plasma model = new Model_plasma();
+                                model.setName(dataSnapshot.child("name").getValue().toString());
+                                model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                list.add(model);
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                }
+                else if(parent.getItemAtPosition(position).toString().compareTo("O-ve") == 0)
+                {
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                                if(dataSnapshot.child("type").getValue().toString().compareTo("O-") == 0)
+                                {
+                                    Model_plasma model = new Model_plasma();
+                                    model.setName(dataSnapshot.child("name").getValue().toString());
+                                    model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                    model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                    model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                    list.add(model);
+                                }
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                else if (parent.getItemAtPosition(position).toString().compareTo("O+ve") == 0)
+                {
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                                if(dataSnapshot.child("type").getValue().toString().compareTo("O+") == 0)
+                                {
+                                    Model_plasma model = new Model_plasma();
+                                    model.setName(dataSnapshot.child("name").getValue().toString());
+                                    model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                    model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                    model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                    list.add(model);
+                                }
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                else if(parent.getItemAtPosition(position).toString().compareTo("B-ve") == 0)
+                {
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                                if(dataSnapshot.child("type").getValue().toString().compareTo("B-") == 0)
+                                {
+                                    Model_plasma model = new Model_plasma();
+                                    model.setName(dataSnapshot.child("name").getValue().toString());
+                                    model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                    model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                    model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                    list.add(model);
+                                }
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                else if (parent.getItemAtPosition(position).toString().compareTo("B+ve") == 0)
+                {
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+
+                                if(dataSnapshot.child("type").getValue().toString().compareTo("B+") == 0)
+                                {
+                                    Model_plasma model = new Model_plasma();
+                                    model.setName(dataSnapshot.child("name").getValue().toString());
+                                    model.setContact(dataSnapshot.child("contact").getValue().toString());
+                                    model.setBlood(dataSnapshot.child("type").getValue().toString());
+                                    model.setAddress(dataSnapshot.child("address").getValue().toString());
+                                    list.add(model);
+                                }
+                            }
+                            adapter.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });

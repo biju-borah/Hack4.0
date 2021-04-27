@@ -2,4 +2,13 @@
     <string name="app_name">Hack4-0</string>
     <string name="the_survivi">The Surviving</string>
 
+    <string-array name="blood_group">
+        <item>A+ve</item>
+        <item>A-ve</item>
+        <item>B+ve</item>
+        <item>B-ve</item>
+        <item>O+ve</item>
+        <item>O-ve</item>
+    </string-array>
+
 </resources>
