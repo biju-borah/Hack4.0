@@ -79,8 +79,6 @@ public class Plasma_list extends AppCompatActivity {
                 list.clear();
                 System.out.println(parent.getItemAtPosition(position));
                 if(parent.getItemAtPosition(position).toString().compareTo("A+ve") == 0){
-
-                    System.out.println("yoooooo");
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
